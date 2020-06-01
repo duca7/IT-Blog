@@ -1,0 +1,38 @@
+<div class="card">
+
+  <mat-card class="example-card">
+    <div class="sign-in-title">
+      <mat-card-header>
+        <mat-card-title>Welcome to Weather-Today</mat-card-title>
+        <mat-card-subtitle> <Strong>Sign In </Strong> <br> to continue with Google </mat-card-subtitle>
+      </mat-card-header>
+    </div>
+    <div class="sign-in">
+      <mat-card-content>
+          <mat-form-field appearance="fill" style="width: 80%; height: 20%;">
+              <mat-label>Enter your email</mat-label>
+              <input matInput placeholder="abc@gmail.com" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" style="width: 80%; height: 20%;">
+            <mat-label>Enter your password</mat-label>
+            <input matInput placeholder="password" [formControl]="password" required type='password' [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="password.invalid">{{getPasswordError()}}</mat-error>
+          </mat-form-field>
+      </mat-card-content>
+    </div>
+
+    <div class="sign-in-button">
+      <mat-card-actions>
+        <button mat-button style="width: 8vw; color:lightseagreen;" (click)="loginOnClick()">Create account</button>
+        <button mat-button (click)="signin()">Sign In</button>
+        <button mat-button (click)="loginWithGG()"> <img src="../../../../assets/google.png" width="15px" height="15px"></button>
+      </mat-card-actions>
+    </div>
+    </mat-card>
+</div>
+
