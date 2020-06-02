@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -11,7 +12,8 @@ import {MatMenuModule} from '@angular/material/menu';
   imports: [
     CommonModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    RouterModule
   ],
   exports:[
     NavBarComponent

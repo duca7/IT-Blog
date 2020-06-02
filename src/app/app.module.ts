@@ -12,6 +12,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ComponentsModule } from './components/components.module';
+import { PostsModule } from './posts/posts.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ComponentsModule } from './components/components.module';
     AngularFirestoreModule,
     AngularFireAuthModule,
     LoginModule,
-    ComponentsModule
+    ComponentsModule,
+    PostsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
