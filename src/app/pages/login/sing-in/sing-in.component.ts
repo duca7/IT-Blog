@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/service/auth.service';
 import { Router } from '@angular/router';
 import { Validators, FormControl } from '@angular/forms';
 import { SingUpComponent } from './../sing-up/sing-up.component';
+import { auth } from 'firebase';
 
 @Component({
   selector: 'app-sing-in',
@@ -19,7 +20,7 @@ export class SingInComponent implements OnInit {
     public dialog: MatDialog,
     public afAuth: AngularFireAuth,
     public snackBar: MatSnackBar,
-    public auth : AuthService,
+    public authService: AuthService,
     public router: Router,
   ) { }
 
@@ -58,10 +59,19 @@ export class SingInComponent implements OnInit {
 
   }
 
-  loginWithGG() {
-    this.auth.loginWithGG().then(()=>{
+  async loginWithGoogle() {
+    const provider = new auth.GoogleAuthProvider();
+    const credetial = await this.afAuth.signInWithPopup(provider);
+    return this.authService.updateUserData(credetial.user)
+    .then(() => {
+      this.snackBar.open('Success!', 'OK', {duration: 2000});
       this.router.navigate(['Home']);
+    })
+    .catch((err) => {
+      this.snackBar.open(err, 'OK', {duration: 2000});
     });
- }
+  }
+
+
 
 }

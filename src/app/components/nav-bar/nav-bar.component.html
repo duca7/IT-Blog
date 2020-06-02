@@ -1,17 +1,36 @@
-<mat-toolbar class="navBarContainer">
-  <mat-toolbar-row>
+<div *ngIf="afAuth.user | async; then authenticated else guest">
+</div>
+
+<ng-template #guest>
+  <mat-toolbar class="navBarContainer">
+    <mat-toolbar-row>
       <div>
-         <img src="../../../assets/Logo.png" alt="" height="60px" width="60px" class="logo">
+        <img src="../../../assets/Logo.png" alt="" height="60px" width="60px" class="logo">
       </div>
       <span class="example-spacer"></span>
+      <button mat-raised-button class="write-post">Write a Post</button>
+      <button mat-raised-button class="btn-login" (click)="router.navigate(['Login'])">Login</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ng-template>
 
-      <button mat-raised-button class="write-post" >Write a Post</button>
+<ng-template #authenticated>
+  <mat-toolbar class="navBarContainer">
 
+    <mat-toolbar-row>
+      <div>
+        <img src="../../../assets/Logo.png" alt="" height="60px" width="60px" class="logo">
+      </div>
+      <span class="example-spacer"></span>
+      <button mat-raised-button class="write-post">Write a Post</button>
       <button mat-button class="center" [matMenuTriggerFor]="menu">
-          <img [src]='avt' style="width: 50px; border-radius: 50% " >
+        <img [src]='avt' style="width: 50px; border-radius: 50% ">
       </button>
-      <mat-menu #menu="matMenu" >
-          <button mat-menu-item (click)="signout()" class="signout">Sign Out</button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="signout()" class="signout">Sign Out</button>
       </mat-menu>
-  </mat-toolbar-row>
-</mat-toolbar>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ng-template>
