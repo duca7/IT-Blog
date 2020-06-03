@@ -5,7 +5,7 @@ import { PostDashboardComponent } from './post-dashboard/post-dashboard.componen
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { Routes, RouterModule } from '@angular/router';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 const routes : Routes =[
   {path: 'blog', component:PostListComponent},
   {path: 'blog/:id', component:PostDetailComponent},
@@ -17,7 +17,8 @@ const routes : Routes =[
   imports: [
     CommonModule,
     ComponentsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatExpansionModule
   ]
 })
 export class PostsModule { }

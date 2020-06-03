@@ -27,7 +27,7 @@ import { PostsModule } from './posts/posts.module';
     AngularFireAuthModule,
     LoginModule,
     ComponentsModule,
-    PostsModule
+    PostsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
