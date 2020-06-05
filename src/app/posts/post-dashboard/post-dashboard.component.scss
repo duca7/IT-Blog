@@ -1,18 +1,12 @@
-.nav-dashboard{
-  display: flex;
-  justify-items: center;
+
+section {
+  max-width: 700px;
+  margin: 2em auto;
 }
-
-
-img{
-  padding: 1% 0 0 5%;
+mat-form-field {
+  width: 100%;
 }
+img {
+  width: 100%;
 
-p{
-  padding: 2.5% 0 0 4%;
-  font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
 }
-
-

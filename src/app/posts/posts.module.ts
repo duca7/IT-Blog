@@ -5,7 +5,14 @@ import { PostDashboardComponent } from './post-dashboard/post-dashboard.componen
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { Routes, RouterModule } from '@angular/router';
+
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 const routes : Routes =[
   {path: 'blog', component:PostListComponent},
   {path: 'blog/:id', component:PostDetailComponent},
@@ -18,7 +25,13 @@ const routes : Routes =[
     CommonModule,
     ComponentsModule,
     RouterModule.forChild(routes),
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatProgressBarModule,
+    MatInputModule,
+    FormsModule
   ]
 })
 export class PostsModule { }

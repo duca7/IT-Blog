@@ -14,12 +14,14 @@ import { User } from '../model/user.model';
 })
 export class AuthService {
 
-
+  authState: any = null
   constructor(
     private afAuth: AngularFireAuth,
     private db: AngularFirestore,
     private router: Router
-  ) { }
+  ) {
+    this.afAuth.authState.subscribe(data => this.authState = data);
+  }
 
   user$: Observable<any>;
 
@@ -50,6 +52,14 @@ export class AuthService {
       photoURL
     };
     return userRef.set(data, { merge: true });
+  }
+
+  get authenticated(): boolean {
+    return this.authState !== null
+  }
+
+  get currentUserId(): string {
+    return this.authenticated ? this.authState.uid : null
   }
 
 }
