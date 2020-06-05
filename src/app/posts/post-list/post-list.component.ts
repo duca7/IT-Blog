@@ -12,11 +12,13 @@ import { AuthService } from 'src/app/service/auth.service';
 export class PostListComponent implements OnInit {
 
   posts: Observable<Post[]>
-  constructor(private postService: PostService, public auth: AuthService) {}
+  constructor(
+    private postService: PostService,
+    public auth: AuthService)
+    {}
 
   ngOnInit() {
-  this.posts = this.postService.getPosts()
-  console.log(this);
+  this.posts = this.postService.getPosts();
   }
 
   delete(id: string) {
@@ -27,3 +29,4 @@ export class PostListComponent implements OnInit {
 
 
 }
+
