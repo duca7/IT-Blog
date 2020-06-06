@@ -1,31 +1,28 @@
-<section>
-  <mat-accordion>
-    <mat-expansion-panel>
 
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Create a Post
-        </mat-panel-title>
-      </mat-expansion-panel-header>
+<div class="container">
+  <div class="nav-dashboard">
+    <img src="./../../../assets/Logo.png" alt="" width="50px" height="50px" style="cursor: pointer;" (click)="router.navigate(['Home'])">
+    <p>Write a new post</p>
+  </div>
+      <div class="card">
+          <input placeholder="Post title" [(ngModel)]="title" name="title" required autocomplete="off" class="title">
 
-      <input type="file" name="file" id="file" (change)="uploadImage($event)">
-      <div [hidden]="!uploadPercent">
-        <mat-progress-bar mode="determinate" value="{{ uploadPercent | async }}"></mat-progress-bar>
-      </div>
-      <div [hidden]="!image">
-        <img [src]="image || '//:0' ">
-      </div>
+          <input type="file" name="file" id="file" (change)="uploadImage($event)" class="choose-img">
 
-      <mat-form-field>
-        <input matInput placeholder="Post title" [(ngModel)]="title" name="title">
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <textarea matInput placeholder="Post content" [(ngModel)]="content" name="content" rows="10"></textarea>
-      </mat-form-field>
-      <br>
-      <button mat-raised-button (click)="createPost()" color="accent" [disabled]="!title || !content || !image">{{saving}} </button>
+          <div [hidden]="!image">
+            <img [src]="image || '//:0' " width="500px" height="200px" style="margin-left:15%;">
+          </div>
+        <br>
+          <textarea matInput placeholder="Post content" [(ngModel)]="content" name="content" rows="10" class="post-content"></textarea>
+        <br>
+        <mat-card-actions class="dashboard-btn">
+          <button mat-raised-button (click)="createPost()" color="accent" [disabled]="!title || !content || !image">{{saving}} </button>
+        </mat-card-actions>
+       </div>
 
-    </mat-expansion-panel>
-  </mat-accordion>
-</section>
+  </div>
+
+
+
+
+

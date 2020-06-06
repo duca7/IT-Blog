@@ -25,8 +25,6 @@ app-menu {
   justify-content: center;
   outline: none;
   border: none;
-  // -webkit-box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
-  // box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
 }
 
 .center{
@@ -58,7 +56,6 @@ app-menu {
 
 .write-post{
   background-color: #E6E7EE;
-  border: 1px solid #d1d9e6;
   border-radius: 5px;
   color: black;
   font-family: Arial, Helvetica, sans-serif;
@@ -67,6 +64,7 @@ app-menu {
   margin-right: 2.5% ;
   outline: none;
   border: none;
+  border: 1px solid #d1d9e6;
   -webkit-box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
   box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
 }

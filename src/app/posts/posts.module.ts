@@ -32,6 +32,11 @@ const routes : Routes =[
     MatProgressBarModule,
     MatInputModule,
     FormsModule
+  ],
+  exports:[
+    PostDashboardComponent,
+    PostListComponent,
+    PostDetailComponent
   ]
 })
 export class PostsModule { }

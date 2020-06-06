@@ -8,7 +8,7 @@
       </mat-card-header>
     </div>
     <div class="sign-in">
-      <mat-card-content>
+      <mat-card-content class="tesst">
           <mat-form-field appearance="fill" style="width: 80%; height: 20%;">
               <mat-label>Enter your email</mat-label>
               <input matInput placeholder="abc@gmail.com" [formControl]="email" required>
@@ -28,9 +28,9 @@
 
     <div class="sign-in-button">
       <mat-card-actions>
-        <button mat-button style="width: 8vw; color:lightseagreen;" (click)="loginOnClick()">Create account</button>
+        <button mat-button style="width: 9vw; color:lightseagreen;" (click)="loginOnClick()">Create account</button>
         <button mat-button (click)="signin()">Sign In</button>
-        <button mat-button (click)="loginWithGoogle()"> <img src="../../../../assets/google.png" width="15px" height="15px"></button>
+        <button mat-button (click)="loginWithGoogle()"> <img src="../../../../assets/google.png" width="20px" height="20px"></button>
       </mat-card-actions>
     </div>
     </mat-card>

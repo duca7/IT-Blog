@@ -5,7 +5,7 @@
   <mat-toolbar class="navBarContainer">
     <mat-toolbar-row>
       <div>
-        <img src="../../../assets/Logo.png" alt="" height="60px" width="60px" class="logo">
+        <img src="../../../assets/Logo.png" alt="" height="60px" width="60px" class="logo" style="cursor: pointer;" (click)="router.navigate(['Home'])">
       </div>
       <span class="example-spacer"></span>
       <button mat-raised-button class="write-post">Write a Post</button>
@@ -19,7 +19,7 @@
 
     <mat-toolbar-row>
       <div>
-        <img src="../../../assets/Logo.png" alt="" height="60px" width="60px" class="logo" routerLink="/blog">
+        <img src="../../../assets/Logo.png" alt="" height="60px" width="60px" class="logo" style="cursor: pointer;" routerLink="/blog">
       </div>
       <span class="example-spacer"></span>
       <button mat-raised-button class="write-post" routerLink="/dashboard" >Write a Post</button>

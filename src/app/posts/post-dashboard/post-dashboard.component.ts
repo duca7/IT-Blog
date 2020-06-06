@@ -25,7 +25,8 @@ export class PostDashboardComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private postService: PostService,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    public router : Router
 
   ) { }
 
