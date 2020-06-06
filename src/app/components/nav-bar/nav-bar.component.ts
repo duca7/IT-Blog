@@ -23,7 +23,7 @@ export class NavBarComponent implements OnInit {
     this.afAuth.user.subscribe((user) => {
       if (!user.emailVerified) {
         user.sendEmailVerification().then(() => {
-          this.snackBar.open('Bye Bye, See You!!!', 'OK', {duration: 5000});
+          this.snackBar.open('Welcome', 'OK', {duration: 5000});
         }).catch((err) => {
           this.snackBar.open(err, 'OK', {duration: 5000});
         });

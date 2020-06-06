@@ -53,6 +53,7 @@ export class SingInComponent implements OnInit {
   signin() {
     this.afAuth.signInWithEmailAndPassword(this.email.value, this.password.value).then(() => {
       this.snackBar.open('Success!', 'OK', {duration: 2000});
+      this.router.navigate(['Home']);
     }).catch((err) => {
       this.snackBar.open(err, 'OK', {duration: 2000});
     });
