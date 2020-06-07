@@ -1,7 +1,19 @@
+.post-list{
+  display: flex;
+  background: #e6e6e6;
+  height: 100%;
+}
 mat-card {
   margin: 10px auto;
-  max-width: 700px;
+  width: 50vw;
+  height: 80%;
+  background-color: #e1e7f3;
+  border: 1px solid #d1d9e6;
+  box-shadow: 20px 20px 30px #d6dbe7, -20px -20px 30px #ecf3ff;
+  -webkit-box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
 }
-mat-form-field {
-  width: 100%;
+.post-img{
+  padding: 4% ;
+  width: 48vw;
+
 }

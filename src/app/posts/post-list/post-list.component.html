@@ -1,10 +1,12 @@
-<section>
-  <mat-card *ngFor="let post of posts | async">
+<app-nav-bar></app-nav-bar>
+<div class="post-list">
+
+  <mat-card *ngFor="let post of posts | async" >
     <mat-card-content routerLink="{{post.id}}">
-      <img mat-card-image src="{{post.image}}" alt="{{post.title}}">
+      <img mat-card-image src="{{post.image}}" alt="{{post.title}}" class="post-img">
       <h2>{{post.title}}</h2>
       <p>
-        <small>Posted by {{post.author}} &bull; on {{post.published | date:"fullDate"}}</small>
+        <small>Posted by {{post.author}} </small>
       </p>
     </mat-card-content>
     <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
@@ -13,4 +15,6 @@
       </button>
     </mat-card-actions>
   </mat-card>
-</section>
+</div>
+
+

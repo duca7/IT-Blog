@@ -1,3 +1,4 @@
+<app-nav-bar></app-nav-bar>
 <ng-container *ngIf="post">
   <div [hidden]="!editing">
     <mat-card>
@@ -20,7 +21,7 @@
       <img mat-card-image src="{{post.image}}" alt="{{post.title}}">
       <h2>{{post.title}}</h2>
       <p>
-        <small>Posted by {{post.author}} &bull; on {{post.published | date:'fullDate'}}</small>
+        <small>Posted by {{post.author}} </small>
       </p>
       <mat-card-content>
         <p>{{ post.content }}</p>
