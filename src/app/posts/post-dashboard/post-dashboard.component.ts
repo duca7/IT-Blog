@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/service/auth.service';
 import { PostService } from 'src/app/service/post.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-post-dashboard',
   templateUrl: './post-dashboard.component.html',
@@ -26,8 +27,8 @@ export class PostDashboardComponent implements OnInit {
     private auth: AuthService,
     private postService: PostService,
     private storage: AngularFireStorage,
-    public router : Router
-
+    public router : Router,
+    public snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
@@ -48,6 +49,8 @@ export class PostDashboardComponent implements OnInit {
     this.image = ''
 
     this.saving = 'Post Created!'
+    this.snackBar.open('Create Success', 'OK', {duration: 5000});
+    this.router.navigate(['/blog']);
     setTimeout(() => (this.saving = 'Create Post'), 3000)
   }
 

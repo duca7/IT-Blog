@@ -34,7 +34,7 @@ export class NavBarComponent implements OnInit {
 
   signout(){
     return this.afAuth.signOut().then(() =>{
-      this.router.navigate(['Home']);
+      this.router.navigate(['/blog']);
     })
   }
 

@@ -28,9 +28,11 @@
 
     <div class="sign-in-button">
       <mat-card-actions>
-        <button mat-button style="width: 9vw; color:lightseagreen;" (click)="loginOnClick()">Create account</button>
-        <button mat-button (click)="signin()">Sign In</button>
-        <button mat-button (click)="loginWithGoogle()"> <img src="../../../../assets/google.png" width="20px" height="20px"></button>
+        <button mat-button class="cre-sign" style="margin-right:1.6vw" (click)="loginOnClick()">Create account</button>
+        <button mat-button class="cre-sign" style="margin-left:2vw" (click)="signin()">Sign In</button>
+        <br>
+        <hr>
+        <button mat-button (click)="loginWithGoogle()"> <img src="../../../../assets/googleIcon.svg" width="20px" height="20px" style="margin-right: 10px;"> Login With Google</button>
       </mat-card-actions>
     </div>
     </mat-card>

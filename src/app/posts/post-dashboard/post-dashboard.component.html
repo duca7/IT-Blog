@@ -1,10 +1,11 @@
 
 <div class="container">
   <div class="nav-dashboard">
-    <img src="./../../../assets/Logo.png" alt="" width="50px" height="50px" style="cursor: pointer;" routerLink="/blog">
+    <img src="./../../../assets/Logo.png" alt="" width="50px" height="50px" style="cursor: pointer; outline:none" routerLink="/blog">
     <p>Write a new post</p>
   </div>
       <div class="card">
+
           <input placeholder="Post title" [(ngModel)]="title" name="title" required autocomplete="off" class="title">
 
           <input type="file" name="file" id="file" (change)="uploadImage($event)" class="choose-img">

@@ -30,17 +30,25 @@
   -webkit-box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
   box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
 }
+
 .sign-in-button button{
-  margin: 10px;
   outline: none;
   border:0;
   cursor: pointer;
-  width: 5vw;
-  height: 5vh;
-  margin: 20px;
   border: 1px solid #d1d9e6;
   -webkit-box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
   box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
 }
-
-
+.cre-sign{
+  width: 10vw;
+}
+hr{
+  width: 24vw;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  outline: none;
+  border:0;
+  border: 3px solid lightgrey;
+  -webkit-box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+}
