@@ -56,7 +56,7 @@ export class PostDashboardComponent implements OnInit {
 
   uploadImage(event) {
     const file = event.target.files[0]
-    const path =  'posts/${file.name}'
+    const path =  `posts/${file.name}`
     if (file.type.split('/')[0] !== 'image') {
       return alert('only image files')
     } else {

@@ -13,6 +13,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+
 const routes : Routes =[
   {path: 'blog', component:PostListComponent},
   {path: 'blog/:id', component:PostDetailComponent},

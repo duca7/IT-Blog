@@ -1,14 +1,21 @@
+<div class="container">
 <app-nav-bar></app-nav-bar>
-<div class="post-list">
+<div>
 
   <mat-card *ngFor="let post of posts | async" >
     <mat-card-content routerLink="{{post.id}}">
-      <img mat-card-image src="{{post.image}}" alt="{{post.title}}" class="post-img">
-      <h2>{{post.title}}</h2>
-      <p>
-        <small>Posted by {{post.author}} </small>
-      </p>
+      <div>
+        <img mat-card-image src="{{post.image}}" alt="{{post.title}}">
+      </div>
+      <div>
+        <h2>{{post.title}}</h2>
+        <p>
+          <small>Posted by {{post.author}} </small>
+        </p>
+      </div>
+
     </mat-card-content>
+
     <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
       <button mat-icon-button (click)="delete(post.id)">
         <mat-icon>delete</mat-icon>
@@ -18,3 +25,4 @@
 </div>
 
 
+</div>
