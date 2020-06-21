@@ -5,20 +5,20 @@
   <mat-card *ngFor="let post of posts | async" >
     <mat-card-content routerLink="{{post.id}}">
       <div>
-        <img mat-card-image src="{{post.image}}" alt="{{post.title}}">
+        <img mat-card-image src="{{post.image}}" >
       </div>
       <div>
         <h2>{{post.title}}</h2>
         <p>
-          <small>Posted by {{post.author}} </small>
+          <small>Posted by {{post.author}} &bull; on {{post.published | date:"fullDate"}} </small>
         </p>
       </div>
 
     </mat-card-content>
 
-    <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
+    <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId" class="btn-post">
       <button mat-icon-button (click)="delete(post.id)">
-        <mat-icon>delete</mat-icon>
+        <mat-icon>edit</mat-icon>
       </button>
     </mat-card-actions>
   </mat-card>

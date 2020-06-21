@@ -1,11 +1,45 @@
 .container{
-
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: #e1e7f3;
-  overflow: scroll;
+  overflow:scroll;
 }
 
 mat-card{
-  width: 50vw;
-  height: 60vh;
+  margin: auto;
+  margin-top: 2vw;
+  width: 40vw;
+  height: 50vh;
+  background-color: #e1e7f3;
+  border: 2px solid #d1d9e6;
+  -webkit-box-shadow: 9px 9px 18px #b8b9be, -9px -9px 18px #fff;
+  box-shadow: 9px 9px 9px #b8b9be, -9px -9px 18px #fff;
+}
+
+mat-card img{
+  border-radius: 5px 5px 0 0;
+  height: 30vh;
+}
+
+h2{
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+
+}
+
+.btn-post button{
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #E6E7EE;
+  border-radius: 5px;
+  border: 1px solid #d1d9e6;
+  -webkit-box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+}
+
+.btn-post button:hover{
+  -webkit-box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
+  box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
 }
