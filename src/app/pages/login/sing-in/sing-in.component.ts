@@ -47,6 +47,7 @@ export class SingInComponent implements OnInit {
     this.dialog.open(SingUpComponent,{
       width: '30%',
       height: '60%',
+
     });
 }
 

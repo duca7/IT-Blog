@@ -9,13 +9,13 @@
     </div>
     <div class="sign-in">
       <mat-card-content class="tesst">
-          <mat-form-field appearance="fill" style="width: 80%; height: 20%;">
-              <mat-label>Enter your email</mat-label>
-              <input matInput placeholder="abc@gmail.com" [formControl]="email" required>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="user@gmail.com" [formControl]="email" required autocomplete="off">
           <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-          </mat-form-field>
+        </mat-form-field>
 
-          <mat-form-field appearance="fill" style="width: 80%; height: 20%;">
+          <mat-form-field appearance="outline">
             <mat-label>Enter your password</mat-label>
             <input matInput placeholder="password" [formControl]="password" required type='password' [type]="hide ? 'password' : 'text'">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
