@@ -1,20 +1,25 @@
 <app-nav-bar></app-nav-bar>
 
-<ng-container *ngIf="post" >
+<ng-container *ngIf="post">
 
     <div [hidden]="!editing">
       <mat-card>
         <h1>Edit Post</h1>
-          <mat-form-field>
-            <input matInput placeholder="Post title" [(ngModel)]="post.title" name="title">
-          </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Post title" [(ngModel)]="post.title" name="title" required autocomplete="off">
+        </mat-form-field>
+
           <br>
           <mat-form-field>
             <textarea matInput placeholder="Post content" [(ngModel)]="post.content" name="content" rows="10"></textarea>
           </mat-form-field>
           <br>
-          <button mat-raised-button (click)="updatePost()" color="accent">Save</button>
-          <button mat-button (click)="editing=false" *ngIf="editing">Cancel</button>
+          <div class="btn-edit-pages">
+            <button mat-raised-button (click)="updatePost()" color="accent" style="margin-left: 44%;">Save</button>
+            <button mat-button (click)="editing=false" *ngIf="editing" style="margin-left:2%">Cancel</button>
+          </div>
+
       </mat-card>
     </div>
 
@@ -23,16 +28,10 @@
   <div [hidden]="editing">
     <mat-card>
       <mat-card-header>
-        <img mat-card-image src="{{post.image}}" alt="{{post.title}}" style="opacity: 0.7; " >
-
-          <h2>{{post.title}}</h2>
-          <p>
-          <small>Posted by {{post.author}} </small>
-          </p>
+        <mat-card-title>{{post.title}}</mat-card-title>
+        <mat-card-subtitle>Posted by {{post.author}}</mat-card-subtitle>
       </mat-card-header>
-
-
-
+      <img mat-card-image src="{{post.image}}" alt="{{post.title}}" style="opacity: 0.6; position: relative;" >
       <mat-card-content>
         <p>{{ post.content }}</p>
       </mat-card-content>
