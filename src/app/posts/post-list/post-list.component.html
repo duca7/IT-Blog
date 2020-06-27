@@ -7,18 +7,20 @@
       <div>
         <img mat-card-image src="{{post.image}}" >
       </div>
-      <div>
+
         <h2>{{post.title}}</h2>
-        <p>
-          <small>Posted by {{post.author}} &bull; on {{post.published | date:"fullDate"}} </small>
+
+        <p>  <img src="{{post.authAvt}}" alt=""  style="width: 45px; height: 45px; border-radius: 50% ">
+              <small>Posted by {{post.author}} &bull; {{post.published}}</small>
+
+
         </p>
-      </div>
 
     </mat-card-content>
 
     <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId" class="btn-post">
       <button mat-icon-button (click)="delete(post.id)">
-        <mat-icon>edit</mat-icon>
+        <mat-icon>delete</mat-icon>
       </button>
     </mat-card-actions>
   </mat-card>

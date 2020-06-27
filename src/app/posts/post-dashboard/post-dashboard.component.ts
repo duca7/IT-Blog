@@ -6,6 +6,7 @@ import { PostService } from 'src/app/service/post.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Post } from '../../model/post';
 @Component({
   selector: 'app-post-dashboard',
   templateUrl: './post-dashboard.component.html',
@@ -37,6 +38,7 @@ export class PostDashboardComponent implements OnInit {
   createPost() {
     const postData = {
       author: this.auth.authState.displayName || this.auth.authState.email,
+      authAvt: this.auth.authState.photoURL,
       authorId: this.auth.currentUserId,
       content: this.content,
       image: this.image || null,

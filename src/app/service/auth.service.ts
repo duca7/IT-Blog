@@ -37,13 +37,6 @@ export class AuthService {
     );
   }
 
-
-
-  async logOut() {
-    await this.afAuth.signOut();
-    return this.router.navigate(['/']);
-  }
-
   updateUserData({ uid, email, photoURL }: User) {
     const userRef: AngularFirestoreDocument<User> = this.db.doc(`users/${uid}`);
     const data = {
