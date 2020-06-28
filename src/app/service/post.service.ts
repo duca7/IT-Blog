@@ -4,6 +4,8 @@ import { AngularFirestore,
 import { Injectable } from '@angular/core';
 import { Post } from '../model/post';
 import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +13,7 @@ export class PostService {
   postsCollection: AngularFirestoreCollection<Post>
   postDoc: AngularFirestoreDocument<Post>
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore,private http:HttpClient) {
     this.postsCollection = this.db.collection('posts', ref =>
       ref.orderBy('published', 'desc')
     )
@@ -37,15 +39,33 @@ export class PostService {
   }
 
   create(data: Post) {
-    this.postsCollection.add(data)
+    // this.postsCollection.add(data);
+    console.log(data);
+    
+    this.http.post<Post>(environment.ENPOINT+'/post',data).pipe().subscribe((status)=>{
+      console.log(status);
+      
+    });
   }
 
   delete(id: string) {
-    return this.getPost(id).delete()
+  this.http.post(environment.ENPOINT+"/delete",{
+    "id":id
+  }).pipe().subscribe((status)=>{
+    console.log(status);
+  });
+  
+    // return this.getPost(id).delete()
   }
 
   update(id: string, formData) {
-    return this.getPost(id).update(formData)
+    this.http.post(environment.ENPOINT+'/update',{
+      "id":id,
+      "formData":formData
+    }).pipe().subscribe((status)=>{
+      console.log(status);
+    })
+    // return this.getPost(id).update(formData)
   }
 
 

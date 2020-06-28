@@ -28,14 +28,14 @@ export class PostDashboardComponent implements OnInit {
     private auth: AuthService,
     private postService: PostService,
     private storage: AngularFireStorage,
-    public router : Router,
+    public router: Router,
     public snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
   }
 
-  createPost() {
+  async createPost() {
     const postData = {
       author: this.auth.authState.displayName || this.auth.authState.email,
       authAvt: this.auth.authState.photoURL,
@@ -45,20 +45,21 @@ export class PostDashboardComponent implements OnInit {
       published: new Date(),
       title: this.title
     }
-    this.postService.create(postData)
-    this.title = ''
-    this.content = ''
-    this.image = ''
+    await this.postService.create(postData);
+    
+    this.title = '';
+    this.content = '';
+    this.image = '';
 
-    this.saving = 'Post Created!'
-    this.snackBar.open('Create Success', 'OK', {duration: 5000});
+    this.saving = 'Post Created!';
+    this.snackBar.open('Create Success', 'OK', { duration: 5000 });
     this.router.navigate(['/blog']);
     setTimeout(() => (this.saving = 'Create Post'), 3000)
   }
 
   uploadImage(event) {
     const file = event.target.files[0]
-    const path =  `posts/${file.name}`
+    const path = `posts/${file.name}`
     if (file.type.split('/')[0] !== 'image') {
       return alert('only image files')
     } else {
@@ -67,16 +68,14 @@ export class PostDashboardComponent implements OnInit {
       this.uploadPercent = task.percentageChanges();
       console.log('Image Uploaded!')
       task.snapshotChanges().pipe(
-        finalize(()=>{
-          this.downloadURL = ref.getDownloadURL()
+        finalize(() => {
+          this.downloadURL = ref.getDownloadURL();
           this.downloadURL.subscribe(url => (this.image = url));
+          console.log(this.downloadURL);
         })
       )
-      .subscribe();
+        .subscribe();
 
     }
   }
-
-
-
 }
