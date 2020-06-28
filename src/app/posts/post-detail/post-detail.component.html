@@ -19,19 +19,19 @@
             <button mat-raised-button (click)="updatePost()" color="accent" style="margin-left: 44%;">Save</button>
             <button mat-button (click)="editing=false" *ngIf="editing" style="margin-left:2%">Cancel</button>
           </div>
-
       </mat-card>
     </div>
 
-
-
   <div [hidden]="editing">
     <mat-card>
+      <img mat-card-image src="{{post.image}}" alt="{{post.title}}">
       <mat-card-header>
         <mat-card-title>{{post.title}}</mat-card-title>
-        <mat-card-subtitle>Posted by {{post.author}}</mat-card-subtitle>
+        <mat-card-subtitle><img src="{{post.authAvt}}" alt=""  style="width: 45px; height: 45px; border-radius: 50% ">
+                          <small style="color: white;"> Posted by {{post.author}}</small>
+        </mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="{{post.image}}" alt="{{post.title}}">
+
       <mat-card-content>
         <p>{{ post.content }}</p>
       </mat-card-content>

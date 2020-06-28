@@ -55,6 +55,7 @@ export class SingUpComponent implements OnInit {
       this.password.reset();
       this.retypePassword.reset();
       this.router.navigate(['./blog']);
+      this.dialogRef.close();
     }).catch((err) => {
       this.snackBar.open(err, 'OK', {duration: 2000});
     });
