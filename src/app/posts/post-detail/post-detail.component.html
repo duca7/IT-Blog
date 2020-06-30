@@ -1,48 +1,52 @@
-<app-nav-bar></app-nav-bar>
+<div class="container">
+  <app-nav-bar></app-nav-bar>
 
-<ng-container *ngIf="post">
+  <ng-container *ngIf="post">
 
-    <div [hidden]="!editing">
-      <mat-card>
-        <h1>Edit Post</h1>
-        <mat-form-field appearance="outline">
-          <mat-label>Title</mat-label>
-          <input matInput placeholder="Post title" [(ngModel)]="post.title" name="title" required autocomplete="off">
-        </mat-form-field>
-
-          <br>
-          <mat-form-field>
-            <textarea matInput placeholder="Post content" [(ngModel)]="post.content" name="content" rows="10"></textarea>
+      <div [hidden]="!editing" class="test">
+        <mat-card>
+          <h1>Edit Post</h1>
+          <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Post title" [(ngModel)]="post.title" name="title" required autocomplete="off">
           </mat-form-field>
-          <br>
-          <div class="btn-edit-pages">
-            <button mat-raised-button (click)="updatePost()" color="accent" style="margin-left: 44%;">Save</button>
-            <button mat-button (click)="editing=false" *ngIf="editing" style="margin-left:2%">Cancel</button>
-          </div>
+
+            <br>
+            <mat-form-field>
+              <textarea matInput placeholder="Post content" [(ngModel)]="post.content" name="content" rows="10"></textarea>
+            </mat-form-field>
+            <br>
+            <div class="btn-edit-pages">
+              <button mat-raised-button (click)="updatePost()" color="accent" style="margin-left: 44%;">Save</button>
+              <button mat-button (click)="editing=false" *ngIf="editing" style="margin-left:2%">Cancel</button>
+            </div>
+        </mat-card>
+      </div>
+
+    <div [hidden]="editing">
+      <mat-card>
+        <img mat-card-image src="{{post.image}}" alt="{{post.title}}">
+        <mat-card-header>
+          <mat-card-title>{{post.title}}</mat-card-title>
+          <mat-card-subtitle><img src="{{post.authAvt}}" alt=""  style="width: 45px; height: 45px; border-radius: 50% ">
+                            <small style="color: white;"> Posted by {{post.author}},{{post.published | date}}</small>
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>{{ post.content }}</p>
+        </mat-card-content>
+        <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
+          <button mat-icon-button (click)="editing=true">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="delete()">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
       </mat-card>
     </div>
+  </ng-container>
+</div>
 
-  <div [hidden]="editing">
-    <mat-card>
-      <img mat-card-image src="{{post.image}}" alt="{{post.title}}">
-      <mat-card-header>
-        <mat-card-title>{{post.title}}</mat-card-title>
-        <mat-card-subtitle><img src="{{post.authAvt}}" alt=""  style="width: 45px; height: 45px; border-radius: 50% ">
-                          <small style="color: white;"> Posted by {{post.author}}</small>
-        </mat-card-subtitle>
-      </mat-card-header>
 
-      <mat-card-content>
-        <p>{{ post.content }}</p>
-      </mat-card-content>
-      <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">
-        <button mat-icon-button (click)="editing=true">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button (click)="delete()">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-</ng-container>
