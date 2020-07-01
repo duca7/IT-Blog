@@ -21,14 +21,10 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.afAuth.user.subscribe((user) => {
-      if (!user.emailVerified) {
-        user.sendEmailVerification().then(() => {
-          this.snackBar.open('Welcome', 'OK', {duration: 5000});
-        }).catch((err) => {
-          this.snackBar.open(err, 'OK', {duration: 5000});
-        });
+      if (user) {
+          this.snackBar.open('Welcome to D.E.V', 'OK', {duration: 5000});
+          this.avt = user.photoURL;
       }
-      this.avt = user.photoURL;
     });
   }
 
